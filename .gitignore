@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Testing.Xero.BankFeeds/v16/TestStore/0
+/Testing.Xero.BankFeeds/bin/Debug/net5.0
+/Testing.Xero.BankFeeds/obj
+*feature.cs
+/.vs/Testing.Xero.BankFeeds/v16
