@@ -2,9 +2,9 @@
 <RunSettings>
 	<TestRunParameters>
 		<Parameter name="baseUrl" value="https://login.xero.com/"/>
-		<Parameter name="browser" value="Chrome"/>
+		<Parameter name="browser" value="Chrome"/>		
+		<Parameter name="implicitWait" value="5"/>
 		<Parameter name="isHeadless" value="true"/>
-		<Parameter name="implicitWait" value="8"/>
 		<Parameter name="UserName" value="karyllhardyurma@gmail.com"/>
 		<Parameter name="Password" value="Abcd1234!"/>
 		<Parameter name="SecAns1" value="Mariz"/>
