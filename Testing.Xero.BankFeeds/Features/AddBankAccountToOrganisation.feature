@@ -9,7 +9,16 @@ Background:
 	And User login using valid credentials
 
 @Test
-Scenario: S01_AddBankAccount_DiffOrganisation
+Scenario: S01_AddBankAccount_HappyPath
+	When User select 'NA' as organisation
+	And User add bank account with details below
+		| Bank     | AccountName     | AccountType           | AccountNumber   | Currency                 |
+		| ANZ (NZ) | RandomString-10 | Everyday (day-to-day) | RandomString-10 | NZD - New Zealand Dollar |
+	Then User can see bank account was successfully added to oraganisation
+	And User logout from the application
+
+
+Scenario Outline: S02_AddBankAccount_DiffOrganisation
 	When User select '<Organisation>' as organisation
 	And User add bank account with details below
 		| Bank   | AccountName   | AccountType   | AccountNumber   | Currency   |
@@ -23,7 +32,7 @@ Scenario: S01_AddBankAccount_DiffOrganisation
 		| TestOrg2     | ANZ (NZ) | RandomString-10 | Everyday (day-to-day) | RandomString-10 | NZD - New Zealand Dollar |
 		| TestOrg3     | ANZ (NZ) | RandomString-10 | Everyday (day-to-day) | RandomString-10 | NZD - New Zealand Dollar |
 
-Scenario: S02_AddBankAccount_DiffAccountTypes
+Scenario Outline: S03_AddBankAccount_DiffAccountTypes
 	When User select '<Organisation>' as organisation
 	And User add bank account with details below
 		| Bank   | AccountName   | AccountType   | AccountNumber   | Currency   |
