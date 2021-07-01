@@ -26,12 +26,9 @@ namespace Testing.Xero.BankFeeds.Helpers
         // Click buttons under span
         public void ClickButton(string CotrolName, string node)
         {
-            //WebDriverWait _wait = new WebDriverWait(_driverContext.Driver, new TimeSpan(0, 1, 0));
-            //_wait.Until(ExpectedConditions.ElementToBeClickable(ButtonControl));
             IWebElement ButtonControl = _driverContext.Driver.FindElement(By.XPath($"//{node}[contains(text(),'{CotrolName}')]"));
             
             ButtonControl.Click();
-
         }
 
         // Navigate to Menu>SubMenu

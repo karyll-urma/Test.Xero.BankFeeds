@@ -36,7 +36,6 @@ namespace Testing.Xero.BankFeeds.Pages
         {
             WebDriverWait _wait = new WebDriverWait(_driverContext.Driver, new TimeSpan(0, 1, 0));
             _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(btnAddBankAccnt)).Click();
-            // btnAddBankAccnt.Click();
             Thread.Sleep(1000);
 
             inputFindBank.SendKeys(bank);

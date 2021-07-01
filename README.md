@@ -6,7 +6,8 @@ This solution will test the existing functionality of Xero - Accounting - Add ba
 ## Build Status
 Repository is currently at GitHub https://github.com/karyll-urma/Test.Xero.BankFeeds
 
-Build status is currently passing. Scripts running on the workflow are scripts without defect. This can be changed based on project/teams requirements
+[![Xero Bank Feeds](https://github.com/karyll-urma/Test.Xero.BankFeeds/actions/workflows/dotnet.yml/badge.svg)](https://github.com/karyll-urma/Test.Xero.BankFeeds/actions/workflows/dotnet.yml)
+Build status is currently passing. 
 
 ## Application under test
 
@@ -25,7 +26,7 @@ Tools: Visual Studio C#
 ## Tests
 Current Test status:
 
-Feature files: 3
+Feature files: 1
 
 Number of test cases: 8
 
