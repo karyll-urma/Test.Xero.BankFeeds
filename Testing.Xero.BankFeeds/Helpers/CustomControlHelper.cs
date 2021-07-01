@@ -27,9 +27,9 @@ namespace Testing.Xero.BankFeeds.Helpers
         public void ClickButton(string CotrolName, string node)
         {
             //WebDriverWait _wait = new WebDriverWait(_driverContext.Driver, new TimeSpan(0, 1, 0));
-            
-            IWebElement ButtonControl = _driverContext.Driver.FindElement(By.XPath($"//{node}[contains(text(),'{CotrolName}')]"));
             //_wait.Until(ExpectedConditions.ElementToBeClickable(ButtonControl));
+            IWebElement ButtonControl = _driverContext.Driver.FindElement(By.XPath($"//{node}[contains(text(),'{CotrolName}')]"));
+            
             ButtonControl.Click();
 
         }
