@@ -1,4 +1,4 @@
-# Buggy Cars Rating
+# Xero - BankFeeds AddBankAccount
 
 ## Project Description
 This solution will test the existing functionality of Xero - Accounting - Add bank account. This aims to benefit the testers/team in terms of execution time, accuracy and reducing manual effort.
@@ -10,7 +10,7 @@ Build status is currently passing. Scripts running on the workflow are scripts w
 
 ## Application under test
 
-https://buggy.justtestit.org/
+https://login.xero.com/
  
 ## Technology/Framework
 
