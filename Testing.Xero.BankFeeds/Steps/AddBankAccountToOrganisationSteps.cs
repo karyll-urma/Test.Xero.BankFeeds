@@ -69,10 +69,10 @@ namespace Testing.Xero.BankFeeds.Steps
             _scenarioContext.Set(data.Currency, "currency");
 
             // skip upload form
-            if(data.AccountType.ToString() != "Other")
+            if (data.AccountType.ToString() != "Other")
             {
                 _bankAcountsPage.SkipUploadForm();
-            }          
+            }
         }
 
         [Then(@"User can see bank account was successfully added to oraganisation")]
@@ -80,9 +80,9 @@ namespace Testing.Xero.BankFeeds.Steps
         {
             // navigate to menu
             _homePage.NavigateToMenuSubmenuAndVerify("Accounting", "Bank accounts");
-            
+
             //verify Account
-            _bankAcountsPage.VerifyAccount(_scenarioContext.Get<string>("accountname"), _scenarioContext.Get<string>("accountnumber"));
+            Assert.IsTrue(_bankAcountsPage.VerifyAccount(_scenarioContext.Get<string>("accountname"), _scenarioContext.Get<string>("accountnumber")), "=====> Account Name: " + _scenarioContext.Get<string>("accountname") + " with Account number: " + _scenarioContext.Get<string>("accountnumber") + " was not displayed in the list.");
 
         }
 
