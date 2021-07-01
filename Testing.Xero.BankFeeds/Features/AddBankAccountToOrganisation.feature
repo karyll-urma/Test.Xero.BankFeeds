@@ -8,7 +8,7 @@ Background:
 	Given User navigate to application
 	And User login using valid credentials
 
-@mytag
+@Test
 Scenario: S01_AddBankAccount_DiffOrganisation
 	When User select '<Organisation>' as organisation
 	And User add bank account with details below
@@ -22,7 +22,7 @@ Scenario: S01_AddBankAccount_DiffOrganisation
 		| TestOrg1     | ANZ (NZ) | RandomString-10 | Everyday (day-to-day) | RandomString-10 | NZD - New Zealand Dollar |
 		| TestOrg2     | ANZ (NZ) | RandomString-10 | Everyday (day-to-day) | RandomString-10 | NZD - New Zealand Dollar |
 		| TestOrg3     | ANZ (NZ) | RandomString-10 | Everyday (day-to-day) | RandomString-10 | NZD - New Zealand Dollar |
-@mytag
+@Test
 Scenario: S02_AddBankAccount_DiffAccountTypes
 	When User select '<Organisation>' as organisation
 	And User add bank account with details below
