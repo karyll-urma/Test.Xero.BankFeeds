@@ -3,7 +3,7 @@
 	<TestRunParameters>
 		<Parameter name="baseUrl" value="https://login.xero.com/"/>
 		<Parameter name="browser" value="Chrome"/>
-		<Parameter name="isHeadless" value="false"/>
+		<Parameter name="isHeadless" value="true"/>
 		<Parameter name="implicitWait" value="5"/>
 		<Parameter name="UserName" value="karyllhardyurma@gmail.com"/>
 		<Parameter name="Password" value="Abcd1234!"/>

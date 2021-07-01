@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Testing.Xero.BankFeeds.Base;
 using Testing.Xero.BankFeeds.Contexts;
@@ -34,6 +35,7 @@ namespace Testing.Xero.BankFeeds.Pages
         public bool AddAndSelectBank(string bank)
         {
             btnAddBankAccnt.Click();
+            Thread.Sleep(1000);
 
             inputFindBank.SendKeys(bank);
             try

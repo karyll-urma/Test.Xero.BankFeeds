@@ -5,5 +5,10 @@
 /.vs/Testing.Xero.BankFeeds/v16/TestStore/0
 /Testing.Xero.BankFeeds/bin/Debug/net5.0
 /Testing.Xero.BankFeeds/obj
+
+#Specflow
 *feature.cs
+
 /.vs/Testing.Xero.BankFeeds/v16
+
+
