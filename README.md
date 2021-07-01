@@ -44,6 +44,7 @@ Step 3 : Setup runsettings file
 Go to Test>Configure Run Setting>Select Solution Wide runsettings File
 and
 Select Settings.runsettings
+*Framework global data is avaialabe in Settings.runsettings file. These includes browser(default to Chrome), implicitwait, url and user credentials.
 
 Step 4: Clean and Build the solution
 
