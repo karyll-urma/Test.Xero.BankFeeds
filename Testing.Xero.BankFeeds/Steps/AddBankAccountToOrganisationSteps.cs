@@ -56,7 +56,7 @@ namespace Testing.Xero.BankFeeds.Steps
 
             // Get accountname/accountnum data - generate random string if string contains "RandomString-"
             string accountNameOverride = _codeHelper.GetDataInput(data.AccountName, "AlphaNumeric");
-            string accountNumOverride = _codeHelper.GetDataInput(data.AccountName, "Numeric");
+            string accountNumOverride = _codeHelper.GetDataInput(data.AccountNumber, "Numeric");
 
             // add bank account
             _bankAcountsPage.AddAndSelectBank(data.Bank);

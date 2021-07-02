@@ -94,7 +94,7 @@ namespace Testing.Xero.BankFeeds.Pages
         // Verify newly added accout
         public bool VerifyAccount(string accountName, string accountNum)
         {
-            return _customControlHelper.IsXpathDisplayed($"//a[@class = 'bank-name global' and text() = '{accountName}']/span[text() = '{accountNum}']");              
+            return _customControlHelper.IsXpathDisplayed($"//a[@class = 'bank-name global' and text() = '{accountName}']/span[contains(text(),'{accountNum}')]");              
         }
 
     }
