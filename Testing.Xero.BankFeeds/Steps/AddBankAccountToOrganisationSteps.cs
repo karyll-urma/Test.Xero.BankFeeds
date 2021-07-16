@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Drawing.Imaging;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Testing.Xero.BankFeeds.Base;
@@ -34,7 +35,7 @@ namespace Testing.Xero.BankFeeds.Steps
             _loginPage.AnsSecurityQuestionsAndConfirm();
 
             // Validate HomePage is displayed
-            Assert.IsTrue(_homePage.VerifyHomePage(), "=====> Login was not successful.");
+            Assert.IsTrue(_homePage.VerifyHomePage(), "=====> Login was not successful.");            
 
             // Validate Current URL
             Assert.IsTrue(_homePage.ValidateURL("https://go.xero.com/Dashboard/"));
@@ -60,6 +61,10 @@ namespace Testing.Xero.BankFeeds.Steps
 
             // add bank account
             _bankAcountsPage.AddAndSelectBank(data.Bank);
+
+            //skip Connection ANZ to Xero
+            _bankAcountsPage.SkipConnectBankToXero();
+
             _bankAcountsPage.EnterAccntDetails(accountNameOverride, data.AccountType, accountNumOverride, data.Currency);
             // store data to scenarioContext
             _scenarioContext.Set(data.Bank, "bank");

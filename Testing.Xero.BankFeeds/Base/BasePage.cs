@@ -1,4 +1,7 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +28,31 @@ namespace Testing.Xero.BankFeeds.Base
         {
             string currentURL = _driverContext.Driver.Url;
             return currentURL.Contains(expURL);
+        }
+
+        // Move to Element
+        public void MoveToElement(IWebElement element)
+        {
+            try
+            {
+                Actions actions = new Actions(_driverContext.Driver);
+                actions.MoveToElement(element).Perform();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Element: " + element + " not found.");
+            }
+            
+        }
+
+        // Click Element
+        public void ClickElement(IWebElement element)
+        {
+            WebDriverWait wait = new WebDriverWait(_driverContext.Driver, TimeSpan.FromSeconds(SettingsContext.ImplicitWait));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
+
+            Actions actions = new Actions(_driverContext.Driver);
+            actions.MoveToElement(element).Click().Perform();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace Testing.Xero.BankFeeds.Base
             _codeHelper = new CodeHelper(_driverContext);
             _bankAcountsPage = new BankAccountsPage(_driverContext);
             _scenarioContext = scenarioContext;
+            
         }
     }
 }

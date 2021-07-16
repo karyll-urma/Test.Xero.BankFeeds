@@ -58,10 +58,6 @@ namespace Testing.Xero.BankFeeds.Pages
         {
             btnUsert.Click();
             btnLogout.Click();
-            //if(btnLogoutConfirm.Displayed)
-            //{
-            //    btnLogoutConfirm.Click();
-            //}
 
             return _customControlHelper.IsElementDisplayed("h2", "Log in to Xero");
         }

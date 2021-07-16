@@ -20,12 +20,15 @@ namespace Testing.Xero.BankFeeds.Pages
 
         IWebElement btnAddBankAccnt => _driverContext.Driver.FindElement(By.XPath("//a/span[text() = 'Add Bank Account']"));
         IWebElement inputFindBank => _driverContext.Driver.FindElement(By.XPath("//div[@data-automationid = 'bankSearch']//input"));
+        IWebElement btnSkipConnect => _driverContext.Driver.FindElement(By.XPath("//footer[contains(@class,'yodlee')]/button[text() = 'Skip']"));
+        IWebElement btnDontConnect => _driverContext.Driver.FindElement(By.XPath("//button[contains(text() , \"Don't connect my bank\")]"));
         IWebElement input1stAcctName => _driverContext.Driver.FindElement(By.XPath("//label/span[text() = 'Account Name']/../..//input"));
         IWebElement input1stAcctType => _driverContext.Driver.FindElement(By.XPath("//label/span[text() = 'Account Type']/../..//input"));
         IWebElement input1stAcctNum => _driverContext.Driver.FindElement(By.XPath("(//label[text() = 'Account Number']/..//input[contains(@id,'accountnumber')])[last()]"));
         IWebElement input1stCreditCardNum => _driverContext.Driver.FindElement(By.XPath("(//label[text() = 'Credit Card Number']/..//input[contains(@id,'accountnumber')])[last()]"));
         IWebElement input1stCurrency => _driverContext.Driver.FindElement(By.XPath("//input[@id = 'currencyCombo-1057-inputEl']"));
         IWebElement btnContinue => _driverContext.Driver.FindElement(By.XPath("//span[text() = 'Continue']"));
+        IWebElement btnGotForm => _driverContext.Driver.FindElement(By.XPath("//span[contains(text(),'got a form')]"));
         IWebElement btnDoLater => _driverContext.Driver.FindElement(By.XPath("//span[contains(text(),'do it later')]"));
         IWebElement btnGoToDashboard => _driverContext.Driver.FindElement(By.XPath("//span[text() = 'Go to dashboard']"));
 
@@ -50,6 +53,23 @@ namespace Testing.Xero.BankFeeds.Pages
             
 
             return _customControlHelper.IsElementDisplayed("h1", "Enter your " + bank + "account details");
+        }
+
+        // Skip ANZ to Xero
+        public void SkipConnectBankToXero()
+        {
+            try
+            {
+                // click skip button
+                ClickElement(btnSkipConnect);
+
+                // click Don't connect my bank
+                ClickElement(btnDontConnect);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Skip Connect Bank to Xero was not displayed.");
+            }
         }
 
         // Enter Account Name and Account Type
@@ -81,20 +101,21 @@ namespace Testing.Xero.BankFeeds.Pages
         public void SkipUploadForm()
         {
             _customControlHelper.ClickButton("got a form", "span");
-            
+
             btnDoLater.Click();
-       
+
             Actions actions = new Actions(_driverContext.Driver);
             IWebElement element = _driverContext.Driver.FindElement(By.XPath("//span[text() = 'Go to dashboard']"));
             actions.MoveToElement(element).Click().Perform();
-            //btnGoToDashboard.Click();
-            //}
         }
 
         // Verify newly added accout
         public bool VerifyAccount(string accountName, string accountNum)
         {
-            return _customControlHelper.IsXpathDisplayed($"//a[@class = 'bank-name global' and text() = '{accountName}']/span[contains(text(),'{accountNum}')]");              
+            string stringElement = $"//a[@class = 'bank-name global' and text() = '{accountName}']/span[contains(text(),'{accountNum}')]";
+            MoveToElement(_driverContext.Driver.FindElement(By.XPath(stringElement)));
+
+            return _customControlHelper.IsXpathDisplayed(stringElement);      
         }
 
     }
